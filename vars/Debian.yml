@@ -1,4 +1,4 @@
 ---
-clc_syslog_usr: debian
-clc_syslog_grp: debian
-clc_interface_name: eth1
+kslm_syslog_usr: debian
+kslm_syslog_grp: debian
+kslm_interface_name: eth1
