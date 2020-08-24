@@ -1,0 +1,4 @@
+---
+clc_syslog_usr: ubuntu  
+clc_syslog_grp: ubuntu
+clc_interface_name: enp0s8
