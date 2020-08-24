@@ -1,11 +1,6 @@
 ---
 # tasks file for rsysloging-client
 
-- name: "Assert all required variables are set"
-  fail: msg="Variable '{{ item }}' is not defined!"
-  when: item not in vars
-  with_items: "{{ clc_required_vars }}"
-
 - name: Include os variables
   include_vars: "{{ansible_os_family}}.yml"
 
