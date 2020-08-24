@@ -1,4 +1,4 @@
 ---
-clc_syslog_usr: ubuntu  
-clc_syslog_grp: ubuntu
-clc_interface_name: enp0s8
+kslm_syslog_usr: ubuntu  
+kslm_syslog_grp: ubuntu
+kslm_interface_name: enp0s8
