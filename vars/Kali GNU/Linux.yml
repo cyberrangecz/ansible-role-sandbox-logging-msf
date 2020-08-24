@@ -1,4 +1,4 @@
 ---
-clc_syslog_usr: root
-clc_syslog_grp: root
-clc_interface_name: eth1
+kslm_syslog_usr: root
+kslm_syslog_grp: root
+kslm_interface_name: eth1
