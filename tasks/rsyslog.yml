@@ -4,10 +4,6 @@
   apt:
     name: rsyslog
     state: latest
-    
-- name: "Installation of rsyslog relp  (state=present is optional)"
-  apt:
-    name: rsyslog-relp
 
 - name: "getent passwd"
   getent:
