@@ -1,4 +1,4 @@
-# KYPO Sandbox Logging Msfconsole Commands
+# Ansible role - KYPO Sandbox Logging Msfconsole Commands
 
 This role provides local Metasploit command logging.
 
@@ -26,6 +26,6 @@ No parameters
       - hosts
   become: true
   roles:
-    - role: kypo-sandbox-logging-msf
+    - role: sandbox-logging-msf
 
 ```
