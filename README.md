@@ -20,12 +20,10 @@ No parameters
 
 ## Example
 
+The simplest example of logging msf commands configuration.
+
 ```
-- hosts:
-      - routers
-      - hosts
-  become: true
   roles:
     - role: sandbox-logging-msf
-
+      become: yes
 ```
