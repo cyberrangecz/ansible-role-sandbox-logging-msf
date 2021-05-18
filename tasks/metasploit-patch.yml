@@ -1,0 +1,8 @@
+---
+
+- name: "Patch Metasploit source file so the incorrect commands appear in the commands history"
+  patch:
+    src: '{{ slm_patch_file }}'
+    dest: '{{ slm_file_to_be_patched }}'
+
+
