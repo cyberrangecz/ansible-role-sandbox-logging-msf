@@ -9,6 +9,44 @@
   getent:
     database: passwd
 
+- name: Get list of valid shells
+  shell: cat /etc/shells | grep -v '# /etc/shells'
+  register: shells
+
+- name: Set variables (slm_login_shells, empty slm_user_history_file_pairs)
+  set_fact: 
+    slm_login_shells: "{{ shells.stdout_lines }}"
+    slm_user_history_file_pairs: []
+
+- name: "Modify slm_user_history_file_pairs to contains key/value pairs ( user : path to history file )"
+  set_fact:
+    slm_user_history_file_pairs:  "{{ slm_user_history_file_pairs + [{ 'key': item.key, 'value':  item.value[4] + '/.msf4/history' }] }}"
+  when: item.value[5] in slm_login_shells
+  loop: "{{ getent_passwd | dict2items }}"
+
+- debug:
+    msg: "{{ slm_user_history_file_pairs }}"
+
+- name: Ensures .msf4 directories exist
+  file: 
+    path: "{{ item.value | dirname }}"
+    owner: "{{ item.key }}"
+    group: "{{ item.key }}"
+    mode: 0755
+    state: directory
+  loop: "{{ slm_user_history_file_pairs }}"
+
+- name: Create history files
+  file:
+    path: "{{ item.value }}"
+    owner: "{{ item.key }}"
+    group: "{{ item.key }}"
+    mode: 0644
+    state: touch
+    modification_time: preserve
+    access_time: preserve
+  loop: "{{ slm_user_history_file_pairs }}"
+
 - name: "150-msf.conf"
   template:
     src: 150-msf.conf.j2
