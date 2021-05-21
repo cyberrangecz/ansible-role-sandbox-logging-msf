@@ -1,4 +1,0 @@
----
-
-slm_patch_file: shell.rb.patch
-slm_file_to_be_patched: /opt/metasploit-framework/embedded/framework/lib/rex/ui/text/shell.rb

@@ -1,8 +1,13 @@
 ---
 
-- name: "Patch Metasploit source file so the incorrect commands appear in the commands history"
-  patch:
-    src: '{{ slm_patch_file }}'
-    dest: '{{ slm_file_to_be_patched }}'
+- name: "Find Metasploit shell.rb source code file"
+  shell: find / -regex '.*/metasploit-framework.*/lib/rex/ui/text/shell.rb'
+  register: slm_shell_rb_file
 
+- name: "Replace the value of the ret variable"
+  replace:
+    path: '{{ slm_shell_rb_file.stdout }}'
+    regexp: '^(.*ret = run_single\(line\))$'
+    replace: '\1; ret = 0'
+    backup: yes
 

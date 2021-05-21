@@ -24,9 +24,6 @@
   when: item.value[5] in slm_login_shells
   loop: "{{ getent_passwd | dict2items }}"
 
-- debug:
-    msg: "{{ slm_user_history_file_pairs }}"
-
 - name: Ensures .msf4 directories exist
   file: 
     path: "{{ item.value | dirname }}"
