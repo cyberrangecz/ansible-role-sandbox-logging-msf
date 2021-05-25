@@ -10,3 +10,7 @@ input(type="imfile"
       PersistStateInterval="1"
 )
 {% endfor %}
+
+if ($syslogtag == 'msf.command:') then {
+  set $!msg!cmd = $msg;
+}
