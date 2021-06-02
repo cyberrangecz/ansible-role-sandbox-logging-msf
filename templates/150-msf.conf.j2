@@ -5,12 +5,12 @@ module(load="imfile")
 {% for user_history_file in slm_user_history_file_pairs %}
 input(type="imfile"
       File="{{ user_history_file.value }}"
-      Tag="msf.command:"
+      Tag="msf.command"
       Severity="info"
       PersistStateInterval="1"
 )
 {% endfor %}
 
-if ($syslogtag == 'msf.command:') then {
+if ($syslogtag == 'msf.command') then {
   set $!msg!cmd = $msg;
 }
