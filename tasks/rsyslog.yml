@@ -1,9 +1,9 @@
 ---
 
-- name: "Update rsyslog to the newest version. Older version may have issues with json formatting."
+- name: "Check the existence of the rsyslog."
   apt:
     name: rsyslog
-    state: latest
+    state: present
 
 - name: "getent passwd"
   getent:
