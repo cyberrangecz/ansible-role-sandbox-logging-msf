@@ -4,6 +4,8 @@ This role provides local Metasploit command logging.
 
 By default, the Metasploit commands history contains only correct/known commands. The role modifies the `/lib/rex/ui/text/shell.rb` file so it records also the incorrect commands to the history file. 
 
+**Warning**: This role only affects users known at the time of its execution. As a result, any [kypo-user-access](https://gitlab.ics.muni.cz/muni-kypo-crp/backend-python/ansible-networking-stage/kypo-user-access) role has to be specified and executed prior to the execution of the sandbox-logging-msf role. 
+
 ## Requirements
 
 * Metasploit 
