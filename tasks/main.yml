@@ -7,5 +7,5 @@
     # upgrade: yes
     update_cache: yes
 
-- include: rsyslog.yml
-- include: metasploit-patch.yml
+- include_tasks: rsyslog.yml
+- include_tasks: metasploit-patch.yml
